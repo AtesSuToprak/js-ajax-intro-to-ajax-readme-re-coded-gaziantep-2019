@@ -42,6 +42,7 @@ function showCommits() {
     )
     .join('')}</ul>`;
   document.getElementById('commits').innerHTML = commitsList;
+}
   
   function getCommits(el) {
   const name = el.dataset.repo;
