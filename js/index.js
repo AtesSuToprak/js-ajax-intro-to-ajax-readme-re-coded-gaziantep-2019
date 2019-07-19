@@ -52,4 +52,3 @@ function showCommits() {
   req.send();
 }
   
-}
