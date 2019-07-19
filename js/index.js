@@ -18,18 +18,17 @@ function getRepositories() {
   req.send();
 }
 
-function showRepositories() {
-  var repos = JSON.parse(this.responseText);
-  console.log(repos);
-  const repoList = `<ul>${repos
+function showCommits() {
+  const commits = JSON.parse(this.responseText);
+  const commitsList = `<ul>${commits
     .map(
-      r =>
-        '<li>' +
-        r.name +
-        ' - <a href="#" data-repo="' +
-        r.name +
-        '" onclick="getCommits(this)">Get Commits</a></li>'
+      commit =>
+        '<li><strong>' +
+        commit.author.login +
+        '</strong> - ' +
+        commit.commit.message +
+        '</li>'
     )
     .join('')}</ul>`;
-  document.getElementById('repositories').innerHTML = repoList;
+  document.getElementById('commits').innerHTML = commitsList;
 }
